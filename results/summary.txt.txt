@@ -1,0 +1,47 @@
+Strategy Backtest Project — Summary Write-up
+Author: Het Savla
+Project Objective
+The goal of this project was to develop and backtest a systematic options trading strategy for the year 2023. The strategy combined in-house trading signals with popular technical indicators applied on spot market data to generate composite trading signals. These signals then guided an options selling approach to capture profits while managing risk.
+
+Approach
+Data Preparation and Signal Engineering
+
+Spot market data for all timestamps during 2023 was enriched with technical indicators including MACD, RSI, ADX, SuperTrend, Bollinger Bands, EMA crossover, Stochastic, and ATR.
+
+These indicators along with proprietary signals were combined using a weighted voting system to create composite buy, sell, and hold signals for the spot market.
+
+Machine Learning Modeling
+
+The classification problem was defined to predict these composite signals (Buy, Sell, Hold) from technical features.
+
+A time-based train/test split was used, with 70% earliest data for training and 30% latest data for testing, to avoid look-ahead bias.
+
+Logistic Regression and XGBoost classifiers were trained and evaluated using accuracy and classification reports. Logistic Regression was selected as the best model with 96.86% test accuracy.
+
+Options Strategy & Backtesting
+
+Buy signals triggered the sale of ATM put options, while sell signals triggered the sale of ATM call options using the nearest expiry in options data.
+
+Risk controls included 1.5% stop-loss, 3% take-profit or forced exit at end-of-day (15:15 local time).
+
+Starting capital was set at ₹200,000, with margin and transaction costs ignored.
+
+Performance Measurement
+
+Equity curve and drawdown plots were generated, illustrating portfolio value and realized drawdowns over 2023.
+
+Metrics such as Sharpe ratio, max drawdown, and total return were calculated for quantitative evaluation.
+
+Key Insights
+Composite Signals: Combining diverse technical indicators with in-house signals improved signal robustness compared to naive single-indicator approaches.
+
+ML Model Impact: Logistic Regression performed slightly better than XGBoost, likely due to model simplicity and balanced bias-variance for this dataset. However, class imbalance was significant, affecting minority class prediction accuracy.
+
+Risk Management: Applying stop-loss and take-profit parameters truncated losses and locked in gains, critical to controlling drawdown within acceptable limits.
+
+Backtest Results: The equity curve showed fluctuations consistent with market conditions and strategy signals, with drawdowns indicating periods of adverse price moves and strategic drawdown tolerance.
+
+Room for Improvement: Addressing class imbalance via resampling or class weighting, and exploring alternate models like neural networks or ensembles could enhance signal prediction.
+
+Conclusion
+The project delivered a modular, transparent, and reproducible framework for options strategy backtesting that integrates signals, ML modeling, and risk-managed trade execution in a cohesive pipeline. The approach and codebase serve as a solid foundation for further refining profitable trades and strategy scaling.
