@@ -44,7 +44,7 @@ strategy-backtest/
 
 └── trades.csv # Backtest trade details
 
-text
+
 
 ---
 
@@ -56,7 +56,7 @@ Install dependencies with:
 
 pip install -r requirements.txt
 
-text
+
 
 ---
 
@@ -66,13 +66,13 @@ text
 
 python model.py
 
-text
+
 
 2. **Run Backtest**
 
 python backtest.py
 
-text
+
 
 3. **Generate Plots**
 
