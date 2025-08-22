@@ -16,19 +16,32 @@ The strategy involves selling ATM options based on buy/sell signals with defined
 
 strategy-backtest/
 ├── data/
+
 │ ├── spot_with_signals_2023.csv # Spot price and composite signals data
+
 │ ├── options_data_2023.csv # Options market data
+
 ├── indicators.py # Technical indicator calculations
+
 ├── signal_engine.py # Composite signal logic and weighting
+
 ├── model.py # ML model training and evaluation
+
 ├── backtest.py # Strategy backtesting implementation
+
 ├── utils.py # Helper functions (plotting, metrics)
+
 ├── requirements.txt # Python dependencies
+
 ├── README.md # This documentation file
+
 └── results/
 ├── equity_curve.png # Equity curve plot
+
 ├── drawdown.png # Drawdown plot
+
 ├── metrics.csv # Performance metrics (Sharpe, max drawdown, total return)
+
 └── trades.csv # Backtest trade details
 
 text
